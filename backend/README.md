@@ -19,7 +19,7 @@
 
 ## API文档
 
-### Swagger UI 
+### Swagger UI
 
 - [Admin Swagger UI](http://localhost:8800/docs/)
 - [Front Swagger UI](http://localhost:9800/docs/)
@@ -35,12 +35,12 @@
 
 相关命令行工具和插件的具体安装方法请参见：[Kratos微服务框架API工程化指南](https://juejin.cn/post/7191095845096259641)
 
-在`blog-backend`根目录下执行命令：
+在`{项目根目录}/backend/api`下执行命令：
 
 - 更新buf.lock
 
     ```bash
-    buf mod update
+    buf dep update
     ```
 
 - 生成GO代码
@@ -52,8 +52,8 @@
 - 生成OpenAPI v3文档
 
     ```bash
-    buf generate --path api/admin/service/v1 --template api/admin/service/v1/buf.openapi.gen.yaml
-    buf generate --path api/front/service/v1 --template api/front/service/v1/buf.openapi.gen.yaml
+    buf generate --template buf.admin.openapi.gen.yaml
+    buf generate --template buf.front.openapi.gen.yaml
     ```
 
 ## Make构建
@@ -78,12 +78,6 @@
    make openapi
    ```
 
-- 生成服务器配置结构代码
-
-   ```bash
-   make conf
-   ```
-
 - 生成ent代码
 
    ```bash
@@ -100,6 +94,12 @@
 
    ```bash
    make build
+   ```
+
+- 调试运行
+
+   ```bash
+   make run
    ```
 
 - 构建Docker镜像

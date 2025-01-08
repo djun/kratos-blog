@@ -113,8 +113,8 @@ api:
 # generate OpenAPI v3 doc
 openapi:
 	@cd ../../../api && \
-	buf generate --path protos/admin/service/v1 --template protos/admin/service/v1/buf.openapi.gen.yaml && \
-	buf generate --path protos/front/service/v1 --template protos/front/service/v1/buf.openapi.gen.yaml
+	buf generate --template buf.admin.openapi.gen.yaml && \
+	buf generate --template buf.front.openapi.gen.yaml
 
 # run application
 run: api openapi
